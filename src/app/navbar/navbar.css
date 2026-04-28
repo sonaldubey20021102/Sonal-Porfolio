@@ -1,0 +1,219 @@
+.navbar {
+  position: sticky;
+  top: 0.9rem;
+  z-index: 1000;
+  width: min(1180px, calc(100% - 1.5rem));
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 1.45rem;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(10, 15, 29, 0.82));
+  backdrop-filter: blur(22px);
+  box-shadow:
+    0 18px 48px rgba(2, 6, 23, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+
+.navbar-glow {
+  position: absolute;
+  inset: -40% auto auto -10%;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.14), transparent 68%);
+  pointer-events: none;
+  filter: blur(6px);
+}
+
+.brand {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: #f8fafc;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(135deg, #f59e0b, #fb7185 55%, #38bdf8);
+  color: #0f172a;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow:
+    0 12px 28px rgba(245, 158, 11, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.brand-copy strong {
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.brand-copy small {
+  color: #94a3b8;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav-shell {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.nav-home,
+.nav-links a,
+.nav-cta {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.nav-home {
+  padding: 0.82rem 1rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.08);
+  border: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.nav-home:hover,
+.nav-links a:hover,
+.nav-cta:hover,
+.brand:hover .brand-mark {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.32rem;
+  list-style: none;
+  border: 1px solid rgba(148, 163, 184, 0.12);
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.48));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.nav-links a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.78rem 0.95rem;
+  border-radius: 999px;
+  position: relative;
+}
+
+.nav-links a:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.16), rgba(56, 189, 248, 0.14));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.82rem 1.15rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f59e0b, #fb7185);
+  color: #0f172a;
+  font-weight: 800;
+  box-shadow: 0 16px 30px rgba(245, 158, 11, 0.18);
+}
+
+.nav-cta:hover {
+  box-shadow: 0 22px 36px rgba(245, 158, 11, 0.24);
+}
+
+.brand:hover .brand-mark {
+  box-shadow:
+    0 16px 34px rgba(245, 158, 11, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.24);
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    top: 0.6rem;
+    flex-direction: column;
+    align-items: stretch;
+    width: calc(100% - 1rem);
+  }
+
+  .nav-shell {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-home {
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .nav-cta {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .navbar {
+    padding: 0.9rem;
+  }
+
+  .brand {
+    justify-content: center;
+  }
+
+  .brand-copy {
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    border-radius: 1.2rem;
+  }
+
+  .nav-links a,
+  .nav-home,
+  .nav-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

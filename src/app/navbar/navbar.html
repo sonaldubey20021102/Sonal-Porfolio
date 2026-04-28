@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="navbar-glow"></div>
+  <a class="brand" href="#top" aria-label="Go to top">
+    <span class="brand-mark">SD</span>
+    <span class="brand-copy">
+      <strong>Sonal.dev</strong>
+      <small>Full Stack .NET Developer</small>
+    </span>
+  </a>
+
+  <div class="nav-shell">
+    <a class="nav-home" href="#top">Home</a>
+
+    <ul class="nav-links">
+      @for (item of navItems; track item.href) {
+        <li>
+          <a [href]="item.href">{{ item.label }}</a>
+        </li>
+      }
+    </ul>
+
+    <a class="nav-cta" href="#contact">Hire Me</a>
+  </div>
+</nav>
