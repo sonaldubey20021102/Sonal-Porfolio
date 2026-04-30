@@ -6,6 +6,7 @@ html {
 body {
   margin: 0;
   font-family: Arial;
+  font-size: 15px;
   background: #020617;
   color: white;
 }
@@ -57,7 +58,7 @@ body {
   border-radius: 999px;
   background: rgba(15, 23, 42, 0.52);
   color: #fbbf24;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
