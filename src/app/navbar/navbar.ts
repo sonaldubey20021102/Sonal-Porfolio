@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.css',
 })
 export class Navbar {
+  protected readonly isMenuOpen = signal(false);
+
   protected readonly navItems = [
     { label: 'About', href: '#about' },
     { label: 'Skills', href: '#skills' },
@@ -15,5 +17,13 @@ export class Navbar {
     { label: 'Projects', href: '#projects' },
     { label: 'Contact', href: '#contact' },
   ];
+
+  protected toggleMenu(): void {
+    this.isMenuOpen.update((isOpen) => !isOpen);
+  }
+
+  protected closeMenu(): void {
+    this.isMenuOpen.set(false);
+  }
 }
 

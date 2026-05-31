@@ -1,20 +1,122 @@
 <nav class="navbar">
   <div class="navbar-glow"></div>
   <a class="brand" href="#top" aria-label="Go to top">
-    <span class="brand-mark">SD</span>
+    <span class="brand-mark">
+      <span class="brand-initials">SD</span>
+      <img src="/SonalImg.png" alt="" class="brand-avatar" aria-hidden="true" />
+    </span>
     <span class="brand-copy">
       <strong>Sonal.dev</strong>
       <small>Full Stack .NET Developer</small>
     </span>
   </a>
 
-  <div class="nav-shell">
-    <a class="nav-home" href="#top">Home</a>
+  <button
+    class="nav-toggle"
+    type="button"
+    [class.is-open]="isMenuOpen()"
+    [attr.aria-expanded]="isMenuOpen()"
+    aria-controls="primary-navigation"
+    aria-label="Toggle navigation"
+    (click)="toggleMenu()"
+  >
+    @if (isMenuOpen()) {
+      <svg
+        class="nav-toggle-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M18 6 6 18" />
+        <path d="m6 6 12 12" />
+      </svg>
+    } @else {
+      <svg
+        class="nav-toggle-icon"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path d="M4 7h16" />
+        <path d="M4 12h16" />
+        <path d="M4 17h16" />
+      </svg>
+    }
+  </button>
+
+  <button
+    class="nav-backdrop"
+    type="button"
+    [class.is-open]="isMenuOpen()"
+    [attr.aria-hidden]="!isMenuOpen()"
+    tabindex="-1"
+    (click)="closeMenu()"
+  ></button>
+
+  <div class="nav-shell" id="primary-navigation" [class.is-open]="isMenuOpen()">
+    <!-- <div class="nav-profile">
+      <img src="/SonalImg.png" alt="Sonal Dubey" class="nav-profile-avatar" />
+      <div class="nav-profile-copy">
+        <strong>Sonal Dubey</strong>
+        <span>Full Stack .NET Developer</span>
+      </div>
+    </div> -->
 
     <ul class="nav-links">
+      <li>
+        <a href="#top" (click)="closeMenu()">
+          <span class="nav-item-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 11 9-8 9 8" />
+              <path d="M5 10v10h14V10" />
+              <path d="M9 20v-6h6v6" />
+            </svg>
+          </span>
+          <span class="nav-link-text">Home</span>
+        </a>
+      </li>
+
       @for (item of navItems; track item.href) {
         <li>
-          <a [href]="item.href">{{ item.label }}</a>
+          <a [href]="item.href" (click)="closeMenu()">
+            <span class="nav-item-icon">
+              @switch (item.label) {
+                @case ('About') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" />
+                    <path d="M4 21a8 8 0 0 1 16 0" />
+                  </svg>
+                }
+                @case ('Skills') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
+                    <path d="m8.5 9.5 3.5 2 3.5-2" />
+                    <path d="M12 12v4" />
+                  </svg>
+                }
+                @case ('Experience') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1" />
+                    <path d="M4 7h16v12H4z" />
+                    <path d="M4 12h16" />
+                    <path d="M10 12v2h4v-2" />
+                  </svg>
+                }
+                @case ('Projects') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 5h16v14H4z" />
+                    <path d="M8 9h8" />
+                    <path d="M8 13h5" />
+                  </svg>
+                }
+                @default {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 5h16v14H4z" />
+                    <path d="m4 7 8 6 8-6" />
+                  </svg>
+                }
+              }
+            </span>
+            <span class="nav-link-text">{{ item.label }}</span>
+          </a>
         </li>
       }
     </ul>
