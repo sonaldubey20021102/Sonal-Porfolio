@@ -15,5 +15,5 @@ import { Contact } from './contact/contact';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('sonal-portfolio');
+  protected readonly title = signal('Sonal Dubey | Full Stack .NET Developer');
 }
